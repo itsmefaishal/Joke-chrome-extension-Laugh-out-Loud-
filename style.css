@@ -22,7 +22,8 @@
 }
 #display{
     border: 2px solid rgba(5, 5, 87, 0.911);
-    color: rgba(5, 5, 87, 0.911) ;
+    color: white ;
+    background-color : rgba(6, 44, 126, 0.911);
     font-size: larger;
     font-weight: bold;
     border-radius: 10px;
