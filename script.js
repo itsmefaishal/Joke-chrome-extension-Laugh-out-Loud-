@@ -1,13 +1,16 @@
-let randomNumber = Math.floor(Math.random() * 100000)
-console.log(randomNumber);
+// let randomNumber = Math.floor(Math.random() * 100000);
+// console.log(randomNumber);
 
 let jokeDisplay = document.getElementById("display");
+const errorHandler = (error) => {
+    console.error(error);
+    alert(error);
+}
 
-fetch("https://api.imgflip.com/get_memes/")
-    .then( response => response.json)
-    .then( json => jsonData)
-    .then( jsonData => jsonData.data )
-
-    let meme = jsonData.data.memes[randomNumber].name;
-
-    jokeDisplay.innerHTML = meme;
+fetch("https://icanhazdadjoke.com/slack")
+    .then( response => response.json())
+    .then( json => {
+        let meme = json.attachments[0].text;
+        jokeDisplay.innerHTML = meme;
+    })
+    .catch(errorHandler);
